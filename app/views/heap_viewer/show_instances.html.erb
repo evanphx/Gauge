@@ -1,0 +1,7 @@
+<h1>All Instances of '<%= @class.name %>'</h1>
+
+<ul>
+  <% @instances.array.each do |obj| %>
+    <li><%= link_to show_object(obj), :action => "show_object", :id => obj.id %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,29 @@
+<section id="classcontainer">
+  <div id="classlist">
+    <h1>Toplevel Classes</h1>
+
+    <ul>
+      <% @classes.each do |name, val| %>
+        <li><%= link_to name, :action => "show_class", :id => val.id %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="classhistogram">
+    <h1>Class Usage</h1>
+    <table>
+      <tr>
+        <th>Objects</th>
+        <th>Class</th>
+        <th>Size (in bytes)</th>
+      </tr>
+      <% @histogram.each_sorted do |klass, entry| %>
+        <tr>
+          <td><%= entry.objects %></td>
+          <td><%= link_to klass.name, :action => "show_class", :id => klass.id %></td>
+          <td><%= entry.bytes %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</section>

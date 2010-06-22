@@ -1,0 +1,39 @@
+<h1><%= @mod_or_class %>: <%= @class.name %></h1>
+
+<h2>Stats</h2>
+<ul>
+  <li>Number of instances: <b><%= @stats.objects %></b></li>
+  <li>Bytes used by instances: <b><%= @stats.bytes %></b></li>
+</ul>
+
+<h2><%= link_to "See All Instances", :action => "show_instances", :id => @class.id %></h2>
+
+<h2>Constants</h2>
+<h3>Modules</h3>
+<ul>
+<% @classes.each do |name, val| %>
+  <li><%= link_to name, :action => "show_class", :id => val.id %></li>
+<% end %>
+</ul>
+
+<h3>Values</h3>
+<ul>
+<% @values.each do |name, val| %>
+  <li><%= name %>: <%= val.inspect %></li>
+<% end %>
+</ul>
+
+<h2>Class Methods</h2>
+<ul>
+  <% @class_methods.each do |name, val| %>
+    <li><%= link_to name, :action => "show_object", :id => val.id %></li>
+  <% end %>
+</ul>
+
+<h2>Instance Methods</h2>
+<ul>
+  <% @instance_methods.each do |name, val| %>
+    <li><%= link_to name, :action => "show_object", :id => val.id %></li>
+  <% end %>
+</ul>
+</div>

@@ -1,0 +1,42 @@
+<h1>#&lt;<%= link_to @object.class_object.name, :action => "show_class", :id => @object.class_object.id %> id=<%= @object.id %>&gt;</h1>
+
+<h2>Instance Data</h2>
+
+<table>
+  <tr>
+    <td>Class: </td>
+    <td><%= link_to @object.class_object.name, :action => "show_class", :id => @object.class_object.id %></td>
+  </tr>
+
+  <% @object.each_ivar do |name,val| %>
+    <tr>
+      <td><%= name %></td>
+      <td>
+      <%= val.kind_of?(Rubinius::HeapDump::Reference) ? link_to(show_ref(val), :action => "show_object", :id => val.id) : show_ref(val) %>
+      </td>
+    </tr>
+  <% end %>
+
+  <% if @object.data %>
+    <tr>
+      <td>data</td>
+      <td>
+        <% if @object.data.kind_of?(Rubinius::HeapDump::Decoder::Tuple) %>
+          <% @object.data.objects.each do |val| %>
+            <%= val.kind_of?(Rubinius::HeapDump::Reference) ? link_to(show_ref(val), :action => "show_object", :id => val.id) : show_ref(val) %><br>
+          <% end %>
+        <% else %>
+          <%= @object.data %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Referers</h2>
+
+<ul>
+  <% @object.referers.array.each do |obj| %>
+    <li><%= link_to show_object(obj), :action => "show_object", :id => obj.id %></li>
+  <% end %>
+</ul>

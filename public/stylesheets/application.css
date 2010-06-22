@@ -1,0 +1,52 @@
+body {
+  font-family: helvetica, arial, sans-serif;
+  font-size: 13px;
+  background-color: #fff;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+.header {
+  font-family: monospace;
+  padding: 6px;
+  background-color: #eee;
+}
+
+.header h1 {
+  font-size: 2em;
+  display: inline
+}
+
+.header h2 {
+  display: inline
+}
+
+section {
+  display: block;
+}
+
+.body {
+  margin-left: 1em;
+}
+
+div.panel {
+  background-color: #eee;
+}
+
+#classcontainer {
+  width: 700px;
+  margin: 0 auto;
+}
+
+#classcontainer h1 {
+  text-align: center;
+}
+
+#classlist {
+  float: left;
+}
+
+#classhistogram {
+  float: right
+}
+
