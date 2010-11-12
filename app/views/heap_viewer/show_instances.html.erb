@@ -1,7 +1,35 @@
 <h1>All Instances of '<%= @class.name %>'</h1>
 
+<h3>Total Instances: <b><%= @instances.size %></b></h3>
+
 <ul>
-  <% @instances.array.each do |obj| %>
-    <li><%= link_to show_object(obj), :action => "show_object", :id => obj.id %></li>
-  <% end %>
+  <div>
+    <h1>Referer Usage</h1>
+    <table>
+      <tr>
+        <th>Objects</th>
+        <th>Class</th>
+      </tr>
+      <% @referers.histogram.each_sorted do |klass, entry| %>
+        <tr>
+          <td><%= entry.objects %></td>
+          <td><%= link_to klass.name, :action => "show_class", :id => klass.id %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </ul>
+
+<div>
+  <h1>All Instances</h1>
+  <table>
+    <tr>
+      <th>Objects</th>
+    </tr>
+    <% @instances.array.each do |i| %>
+      <tr>
+        <td><%= link_to show_ref(i), :action => "show_object", :id => i.id %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

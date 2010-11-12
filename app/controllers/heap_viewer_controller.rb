@@ -78,6 +78,7 @@ class HeapViewerController < ApplicationController
     @class = cls
 
     @instances = cls.all_instances
+    @referers = @instances.referers
   end
 
   def show_object
