@@ -1,0 +1,4 @@
+rvm rbx-2.0.0pre
+rvm_project_rvmrc=0
+rvm_project_rvmrc_default=1
+

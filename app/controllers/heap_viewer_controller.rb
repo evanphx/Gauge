@@ -1,10 +1,6 @@
 require 'read_dump'
 
 class HeapViewerController < ApplicationController
-  def index
-    redirect_to :action => :show
-  end
-
   def show
     @session = HeapDumpSession.session
     @histogram = @session.histogram

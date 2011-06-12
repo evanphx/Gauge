@@ -20,7 +20,7 @@ module HeapViewerHelper
     case ref
     when Rubinius::HeapDump::Reference
       show_object sess.decoder.deref(ref)
-    when Rubinius::HeapDump::Symbol
+    when Rubinius::HeapDump::XSymbol
       "#<Symbol #{ref.data.inspect}>"
     when Array
       ref.map { |x| x.inspect }.join(", ")
