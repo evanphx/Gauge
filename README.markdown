@@ -37,6 +37,10 @@ rails server
 
 and you will be greeted with a menu.  Enjoy!
 
+## Screenshot
+
+![Screenshot](https://img.skitch.com/20110612-d6d1jpg9fusb8cear4m3s7awyh.jpg)
+
 ## Details
 
 Most recently tested with:
