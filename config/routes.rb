@@ -1,4 +1,4 @@
-Gauge::Application.routes.draw do |map|
+Gauge::Application.routes.draw do
   get "heap_viewer/show_class"
 
   get "heap_viewer/show_instances"

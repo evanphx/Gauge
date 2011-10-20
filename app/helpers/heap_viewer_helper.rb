@@ -8,7 +8,7 @@ module HeapViewerHelper
       "#<Array id=#{obj.id} size=#{sz}>"
     when "String"
       total = obj["@num_bytes"]
-      data = obj["@data"].data.data[0, total]
+      data = obj["@data"].data.data
       "#<String id=#{obj.id} bytes=#{total} #{data.inspect}>"
     else
       "#<#{obj.class_object.name} id=#{obj.id}>"
