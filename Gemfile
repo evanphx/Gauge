@@ -27,3 +27,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # group :test do
 #   gem 'webrat'
 # end
+#
+
+platforms :rbx do
+  gem 'rubysl', '~> 2.0'
+  gem 'racc', '~> 1.4'
+  gem 'json', '~> 1.8'
+end
