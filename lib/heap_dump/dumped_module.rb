@@ -36,7 +36,7 @@ module Rubinius
       def find_class(name)
         name = name.to_s
         constant_table.map do |key, val|
-          return val.as_module if key.data == name
+          return val.as_module if val and key.data == name
         end
 
         nil
