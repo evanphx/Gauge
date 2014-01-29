@@ -21,7 +21,7 @@ class HeapDumpSession
     else
       @decoder = Rubinius::HeapDump::Decoder.new
       @decoder.decode(@file)
-      File.open("#{@file}.marshal", "w") { |f| f << Marshal.dump(@decoder) }
+      File.open("#{@file}.marshal", "w:binary") { |f| f << Marshal.dump(@decoder) }
     end
     @histogram = decoder.all_objects.histogram
   end
