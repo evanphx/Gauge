@@ -37,7 +37,7 @@ class HeapViewerController < ApplicationController
       if val.kind_of? Rubinius::HeapDump::DumpedObject
         @classes << [name.data, val] if val.dump_kind_of? @session.decoder.Module
       else
-        @values << [name.data, val]
+        @values << [name.data, val] if name
       end
     end
 
